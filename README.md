@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+This is Pizza app where user can order pizza easily.The contained some pages they are like Home,Menu,Order,View Pizza and OrderSuccess Pages mainly.
+The user can move from one page to other pages dynamically.
+Intially when app loads Home page will render in UI.
+In my apllication i have implemented redux which is a third party Library.
+I have created Redux Store. So , when my Home page renders I am fetching data from API endpoint inside useEffect hook with the help of axios which is third party library
+and storing the data from API to redux store. This functionality is done by dispatch function which accepts a action object(action object contains one mandatory property called type So that based on type reducer understands what updates have to do into the store, in the same way we can also send data from component to the store with the help of Payload property of action object). Hence , I am sendind data from Home component to the Redux Store with the help of payload Property of Action Object.
+Before Sendind data to the Redux Store I am checking ,whether that data is in Store or Not ,If not then i will send otherwiise i wont fetch data from api itself.
+Now data is in the Store So , that data is avialable to all the components which ara Wrapped inside Povider component which is imported from react-redux library.
+So when i click on MENU Link in the nav Menu Component is Rendered.
+Inside Menu Component I am accessing data from ReduxStore with the help of useSelector hook which returns reduxStore data .useSelector and useDispatch are imported from react-redux library.
+Inside Home Component onScrolling down we can see all pizzas . I got this data with the  help of useSelector hook that we have seen already in Menu Component earlier.
+The pizzas is a Array which caontains some Object each object contians separate pizza information.
+So, to get each Pizza information in my UI i have looped on Pizza Array with the help of map method which is a Array methode.
+Onhovering on each pizza we can see two buttons they are Quick View and Add to Cart. 
+On Clicking Quick it routes to View Component and sending particular pizza id to route(path url).this is done by using Link Component which is imported from react-router-dom . So that particular pizza id is displayed in url in our browser.
+When View Component renders we can access that id from url by using useParams hook .
+After getting that id we can filter out related pizza information from Pizza Array which from Redux Store, wiht the help of Array metho find.
+After that i can store that filtered object with the help of useState hook and i showed in UI.
+In View  component along with particular pizza information we can see Add to cart button onClicking on that button Order page is rendered with the help o useNavigate hook. In Order Component we can see Form where user can provide data to us . I  am storing those data in tha form of object with the help of useRef Hook.
+As in Project it is not mentioned more about it So , I have done upto that part only.
+In Order Component we can see OrderNow Button . OnClicking on that button it is rendered to OrderSuccessFull page with the help of useNavigate hook.
+Inside OrderSuccessful Page we can see on animation like delivery bike is moving .This is done by using third party Library (framer motion) and useState Concept.
+Thats all about my Project .
+##In my Project I have used Chakra UI which is third party Library for designing CSS Part.
+Thank You....
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
