@@ -60,7 +60,7 @@ return(
           </Button>
         </Box>
       </Flex>
-    <Pizzas/>
+    <Pizzas/>    //rendering pizzas component
   </Box>
 )
   
